@@ -1,0 +1,65 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block title %}Drivers{% endblock %}
+
+{% block body %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ driver.FirstName }} {{ driver.LastName }}</h4>
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <th>Id</th>
+                                    <td>{{ driver.id }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Username</th>
+                                    <td>{{ driver.username }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Roles</th>
+                                    <td>{{ driver.roles ? driver.roles|json_encode : '' }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Password</th>
+                                    <td>{{ driver.password }}</td>
+                                </tr>
+                                <tr>
+                                    <th>FirstName</th>
+                                    <td>{{ driver.FirstName }}</td>
+                                </tr>
+                                <tr>
+                                    <th>LastName</th>
+                                    <td>{{ driver.LastName }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Age</th>
+                                    <td>{{ driver.Age }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Sex</th>
+                                    <td>{{ driver.Sex }}</td>
+                                </tr>
+                                <tr>
+                                    <th>PhoneNumber</th>
+                                    <td>{{ driver.PhoneNumber }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <a href="{{ path('drivers_index') }}">back to list</a>
+
+                            <a href="{{ path('drivers_edit', {'id': driver.id}) }}">edit</a>
+
+                            {{ include('drivers/_delete_form.html.twig') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

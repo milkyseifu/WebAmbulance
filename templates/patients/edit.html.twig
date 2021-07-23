@@ -1,0 +1,28 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block title %}Edit Patients{% endblock %}
+
+{% block body %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Edit User Form</h4>
+                            <p class="card-description">
+                                Edit User Form
+                            </p>
+                            {{ include('patients/_form.html.twig', {'button_label': 'Update'}) }}
+
+                            <a href="{{ path('patients_index') }}" class="btn btn-link">back to list</a>
+
+                            {{ include('patients/_delete_form.html.twig') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

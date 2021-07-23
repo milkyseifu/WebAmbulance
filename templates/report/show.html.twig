@@ -1,0 +1,53 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block title %}Report{% endblock %}
+
+{% block body %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ report.incidentName }}</h4>
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <th>Id</th>
+                                    <td>{{ report.id }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Incident Name</th>
+                                    <td>{{ report.incidentName }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Incident Address</th>
+                                    <td>{{ report.address }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Reauested Date and time</th>
+                                    <td>{{ report.requestedAt|date('Y/m/d H:i:s') }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Requested User</th>
+                                    <td>{{ report.requestedBy }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Request received by</th>
+                                    <td>{{ report.receivedBy }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Request Received At</th>
+                                    <td>{{ report.ReceivedAt|date('Y/m/d H:i:s') }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <a href="{{ path('status') }}">back to list</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

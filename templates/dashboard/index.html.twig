@@ -1,0 +1,20 @@
+{% extends('base.html.twig') %}
+
+{% block profile %}
+
+    {% for user in users %}
+    <p class="badge bg-success">
+        {{ user.email }}
+    </p>
+    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+        <img src="{{ '/uploads/'~user.image }}" alt="profile"/>
+    </a>
+    {% endfor %}
+    <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+    {% for user in users %}
+    <a class="dropdown-item" href="{{ path('profile' )}}">
+        <i class="ti-apple text-primary"></i>
+        Change Profile Picture
+    </a>
+    {% endfor %}
+{% endblock %}

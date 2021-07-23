@@ -1,0 +1,57 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block title %}Ambulance{% endblock %}
+
+{% block body %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ ambulance.AmbulanceName }}</h4>
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <th>Id</th>
+                                    <td>{{ ambulance.id }}</td>
+                                </tr>
+                                <tr>
+                                    <th>AmbulanceName</th>
+                                    <td>{{ ambulance.AmbulanceName }}</td>
+                                </tr>
+                                <tr>
+                                    <th>PlateNumber</th>
+                                    <td>{{ ambulance.PlateNumber }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Capacity</th>
+                                    <td>{{ ambulance.Capacity }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Address</th>
+                                    <td>{{ ambulance.Address }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Latitude</th>
+                                    <td>{{ ambulance.latitude }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Longitude</th>
+                                    <td>{{ ambulance.longitude }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <a href="{{ path('ambulance_index') }}">back to list</a>
+
+                            <a href="{{ path('ambulance_edit', {'id': ambulance.id}) }}">edit</a>
+
+                            {{ include('ambulance/_delete_form.html.twig') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

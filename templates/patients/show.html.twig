@@ -1,0 +1,53 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block title %}Patients{% endblock %}
+
+{% block body %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ patient.FirstName }}  {{ patient.LastName }}</h4>
+                            <p class="card-description">
+                                New User Registration Form
+                            </p>
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <th>Id</th>
+                                    <td>{{ patient.id }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Username</th>
+                                    <td>{{ patient.username }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Roles</th>
+                                    <td>{{ patient.roles ? patient.roles|json_encode : '' }}</td>
+                                </tr>
+                                <tr>
+                                    <th>FirstName</th>
+                                    <td>{{ patient.FirstName }}</td>
+                                </tr>
+                                <tr>
+                                    <th>LastName</th>
+                                    <td>{{ patient.LastName }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <a href="{{ path('patients_index') }}" class="btn btn-link">back to list</a>
+
+                            <a href="{{ path('patients_edit', {'id': patient.id}) }}" class="btn btn-warning">edit</a>
+
+                            {{ include('patients/_delete_form.html.twig') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

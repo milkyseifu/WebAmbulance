@@ -1,0 +1,58 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block title %}Ambulance index{% endblock %}
+
+{% block body %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Available Ambulance List</h4>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>AmbulanceName</th>
+                                        <th>PlateNumber</th>
+                                        <th>Capacity</th>
+                                        <th>Address</th>
+                                        <th>Latitude</th>
+                                        <th>Longitude</th>
+                                        <th>actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for ambulance in ambulances %}
+                                        <tr>
+                                            <td>{{ loop.index }}</td>
+                                            <td>{{ ambulance.AmbulanceName }}</td>
+                                            <td>{{ ambulance.PlateNumber }}</td>
+                                            <td>{{ ambulance.Capacity }}</td>
+                                            <td>{{ ambulance.Address }}</td>
+                                            <td>{{ ambulance.latitude }}</td>
+                                            <td>{{ ambulance.longitude }}</td>
+                                            <td>
+                                                <a href="{{ path('ambulance_show', {'id': ambulance.id}) }}" class="btn btn-success">show</a>
+                                                <a href="{{ path('ambulance_edit', {'id': ambulance.id}) }}" class="btn btn-warning">edit</a>
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="8">no records found</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+                                <a href="{{ path('ambulance_new') }}" class="btn btn-primary">Create new</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

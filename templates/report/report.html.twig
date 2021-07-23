@@ -1,0 +1,55 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block title %}Report index{% endblock %}
+
+{% block body %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Incident Report</h4>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Incident Name</th>
+                                        <th>Address</th>
+                                        <th>Requested At</th>
+                                        <th>Requestd By</th>
+                                        <th>Received By</th>
+                                        <th>Received At</th>
+                                        <th>actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for report in reports %}
+                                        <tr>
+                                            <td>{{ loop.index }}</td>
+                                            <td>{{ report.incidentName }}</td>
+                                            <td>{{ report.address }}</td>
+                                            <td>{{ report.requestedAt|date('Y/m/d H:i:s') }}</td>
+                                            <td>{{ report.requestedBy }}</td>
+                                            <td>{{ report.receivedBy }}</td>
+                                            <td>{{ report.ReceivedAt|date('Y/m/d H:i:s') }}</td>
+                                            <td>
+                                                <a href="{{ path('report_show', {'id': report.id}) }}" class="btn btn-success">show</a>
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="8">no records found</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
